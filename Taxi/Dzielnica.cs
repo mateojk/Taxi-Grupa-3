@@ -8,13 +8,15 @@ namespace Taxi
 {
     class Dzielnica
     {
-        public Dzielnica(int id, string nazwa, int odlegloscOdCentrum)
+        public Dzielnica(int id, string nazwa, int odlegloscOdCentrum, Taksowka[] taksowki)
         {
             this.id = id;
             this.nazwa = nazwa;
             this.odlegloscOdCentrum = odlegloscOdCentrum;
+            this.taksowki = taksowki;
         }
 
+        public Taksowka[] taksowki;
 
         private int id;
         public int Id { 
@@ -32,18 +34,19 @@ namespace Taxi
         }
 
         private int iloscTaxi;
-        public int IloscTaxi {
+        public int IloscTaxi
+        {
             get { return iloscTaxi; }
-            set { iloscTaxi = value; }
+            set
+            {
+                iloscTaxi = 0;
+                for (int i = 0; i < taksowki.Length; i++)
+                {
+                    if (Nazwa == taksowki[i].AktualnaDzielnica)
+                        iloscTaxi++;
+                }
+            }
         }
-
-        //public int CzyTaksowkaWDzielnicy(Taksowka taksowka)
-        //{
-        //    if (Nazwa == taksowka.AktualnaDzielnica)
-        //        return 1;
-        //    else
-        //        return 0;
-        //}
 
     }
 }
