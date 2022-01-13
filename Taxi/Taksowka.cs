@@ -10,22 +10,15 @@ namespace Taxi
     {
         public Taksowka(int id, string samochod, string aktualnaDzielnica)
         {
-            this.id = id;
-            this.samochod = samochod;
+            Id = id;
+            Samochod = samochod;
             this.aktualnaDzielnica = aktualnaDzielnica;
             czyWolny = true;
         }
 
+        public int Id { get; private set; }
 
-        private int id;
-        public int Id {
-            get { return id; } 
-        }
-
-        private string samochod;
-        public string Samochod { 
-            get { return samochod; }
-        }
+        public string Samochod { get; private set; }
 
         private bool czyWolny;
         public bool CzyWolny { 

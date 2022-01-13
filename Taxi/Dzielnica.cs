@@ -10,23 +10,17 @@ namespace Taxi
     {
         public Dzielnica(int id, string nazwa, int odlegloscOdCentrum, Taksowka[] taksowki)
         {
-            this.id = id;
-            this.nazwa = nazwa;
+            Id = id;
+            Nazwa = nazwa;
             this.odlegloscOdCentrum = odlegloscOdCentrum;
             this.taksowki = taksowki;
         }
 
         public Taksowka[] taksowki;
 
-        private int id;
-        public int Id { 
-            get { return id; }
-        }
+        public int Id { get; private set; }
 
-        private string nazwa;
-        public string Nazwa { 
-            get { return nazwa; }
-        }
+        public string Nazwa { get; private set; }
 
         private int odlegloscOdCentrum;
         public int OdlegloscOdCentrum {
