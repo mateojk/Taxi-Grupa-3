@@ -8,11 +8,12 @@ namespace Taxi
 {
     public class Driver
     {
-        public Driver(int id, string car, List<District> districts)
+        public Driver(int id, string car, List<District> districts, int currentDistrictId)
         {
             Id = id;
             Car = car;
             Districts = districts;
+            this.currentDistrictId = currentDistrictId;
             status = true;
         }
 
@@ -25,6 +26,16 @@ namespace Taxi
             get { return status; }
             set { status = value; }
         }
+
+
+        private int currentDistrictId;
+        public int CurrentDistrictId
+        {
+            get { return currentDistrictId; }
+            set { currentDistrictId = value; }
+        }
+
+
 
 
     }
