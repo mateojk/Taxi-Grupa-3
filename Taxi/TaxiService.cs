@@ -10,29 +10,34 @@ namespace Taxi
     {
         public TaxiService()
         {
-            CreateDrivers();
             CreateDistricts();
+            CreateDrivers();
+
         }
 
-        public List<Driver> Drivers { get; set; } = new List<Driver>();
-        private void CreateDrivers()
-        {
-            Drivers.Add(new Driver(1, "Ford Mondeo", "Retkinia"));
-            Drivers.Add(new Driver(2, "Dacia Logan", "Łódź Kaliska"));
-            Drivers.Add(new Driver(3, "Toyota Avensis", "Śródmieście"));
-            Drivers.Add(new Driver(4, "Mercedes E220", "Widzew"));
-            Drivers.Add(new Driver(5, "Huindai Lantra", "Janów"));
-        }
 
         public List<District> Districts { get; set; } = new List<District>();
         private void CreateDistricts()
         {
-            Districts.Add(new District(1, "Retkinia", -2, Drivers));
-            Districts.Add(new District(2, "Łódź Kaliska", -1, Drivers));
-            Districts.Add(new District(3, "Śródmieście", 0, Drivers));
-            Districts.Add(new District(4, "Widzew", 1, Drivers));
-            Districts.Add(new District(5, "Janów", 3, Drivers));
+            Districts.Add(new District(1, "Retkinia", -2));
+            Districts.Add(new District(2, "Łódź Kaliska", -1));
+            Districts.Add(new District(3, "Śródmieście", 0));
+            Districts.Add(new District(4, "Widzew", 1));
+            Districts.Add(new District(5, "Janów", 3));
         }
+
+
+        public List<Driver> Drivers { get; set; } = new List<Driver>();
+        private void CreateDrivers()
+        {
+            Drivers.Add(new Driver(1, "Ford Mondeo", Districts));
+            Drivers.Add(new Driver(2, "Dacia Logan", Districts));
+            Drivers.Add(new Driver(3, "Toyota Avensis", Districts));
+            Drivers.Add(new Driver(4, "Mercedes E220", Districts));
+            Drivers.Add(new Driver(5, "Huindai Lantra", Districts));
+        }
+
+
 
 
         //public string CzyTaxiWolne(Taksowka taxi)

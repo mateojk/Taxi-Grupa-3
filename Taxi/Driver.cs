@@ -8,30 +8,24 @@ namespace Taxi
 {
     public class Driver
     {
-        public Driver(int id, string car, string currentDistrict)
+        public Driver(int id, string car, List<District> districts)
         {
             Id = id;
             Car = car;
-            this.currentDistrict = currentDistrict;
-            available = true;
+            Districts = districts;
+            status = true;
         }
 
+        public List<District> Districts;
         public int Id { get; private set; }
-
         public string Car { get; private set; }
-
-        private bool available;
-        public bool Available
+        private bool status;
+        public bool Status
         {
-            get { return available; }
-            set { available = value; }
+            get { return status; }
+            set { status = value; }
         }
 
-        private string currentDistrict;
-        public string CurrentDistrict
-        {
-            get { return currentDistrict; }
-            set { currentDistrict = value; }
-        }
+
     }
 }
