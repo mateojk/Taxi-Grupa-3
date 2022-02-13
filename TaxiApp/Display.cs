@@ -9,7 +9,6 @@ namespace TaxiApp
 {
     public class Display
     {
-
         public static void MainMenu()
         {
             Console.WriteLine("WYBIERZ OPCJĘ:");

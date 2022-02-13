@@ -19,8 +19,5 @@ namespace TaxiLogic
         public string Name { get; private set; }
         public int DistanceFromTheCenter { get; private set; }
 
-
-
-
     }
 }

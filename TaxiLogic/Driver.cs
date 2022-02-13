@@ -32,6 +32,5 @@ namespace TaxiLogic
             get { return timeToOrderedDistrict; }
             set { timeToOrderedDistrict = value; }
         }
-
     }
 }

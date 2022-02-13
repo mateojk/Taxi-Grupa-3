@@ -11,16 +11,11 @@ namespace TaxiApp
             bool firstOrder = true;
             int usersNumber = 0;
 
-
-
-
             while (usersNumber == 0)
             {
                 Console.Clear();
                 usersNumber = Display.MenuSelection();
             }
-            // numer 1 lub 2 lub 3
-
 
             District selectedDistrict = Display.FirstOrderSelection(taxi.Drivers, taxi.Districts, usersNumber);
             int orderedDriversIndex = TaxiService.SelectFastestDriversIndex(taxi.Drivers, selectedDistrict);
