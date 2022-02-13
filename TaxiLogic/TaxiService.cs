@@ -82,98 +82,98 @@ namespace TaxiLogic
         }
 
 
-        public static District FirstOrderSelection(List<Driver> drivers, List<District> districts, int usersNumber)
-        {
-            bool isUsersNumberValid = usersNumber == 1 || usersNumber == 2;
-            while (!isUsersNumberValid)
-            {
-                Console.Clear();
-                Display.MainMenu();
-                usersNumber = int.Parse(Console.ReadLine());
-                isUsersNumberValid = usersNumber == 2;
-                if (usersNumber == 3)
-                    Environment.Exit(0);
-            }
+        //public static District FirstOrderSelection(List<Driver> drivers, List<District> districts, int usersNumber)
+        //{
+        //    bool isUsersNumberValid = usersNumber == 1 || usersNumber == 2;
+        //    while (!isUsersNumberValid)
+        //    {
+        //        Console.Clear();
+        //        Display.MainMenu();
+        //        usersNumber = int.Parse(Console.ReadLine());
+        //        isUsersNumberValid = usersNumber == 2;
+        //        if (usersNumber == 3)
+        //            Environment.Exit(0);
+        //    }
 
-            if (usersNumber == 1)
-            {
-                Console.Clear();
-                Display.DistrictsList(districts, drivers);
-                Display.DriversTitle();
-                foreach (var driver in drivers)
-                {
-                    Console.WriteLine(Display.DriverInfo(driver));
-                }
-                Display.MainMenu();
-                usersNumber = int.Parse(Console.ReadLine());
-                isUsersNumberValid = usersNumber == 2;
-                while (!isUsersNumberValid)
-                {
-                    Console.Clear();
-                    if (usersNumber == 3)
-                        Environment.Exit(0);
-                    Display.DistrictsList(districts, drivers);
-                    Display.DriversTitle();
-                    foreach (var driver in drivers)
-                    {
-                        Console.WriteLine(Display.DriverInfo(driver));
-                    }
-                    Display.MainMenu();
-                    usersNumber = int.Parse(Console.ReadLine());
-                    isUsersNumberValid = usersNumber == 2;
-                }
-            }
+        //    if (usersNumber == 1)
+        //    {
+        //        Console.Clear();
+        //        Display.DistrictsList(districts, drivers);
+        //        Display.DriversTitle();
+        //        foreach (var driver in drivers)
+        //        {
+        //            Console.WriteLine(Display.DriverInfo(driver));
+        //        }
+        //        Display.MainMenu();
+        //        usersNumber = int.Parse(Console.ReadLine());
+        //        isUsersNumberValid = usersNumber == 2;
+        //        while (!isUsersNumberValid)
+        //        {
+        //            Console.Clear();
+        //            if (usersNumber == 3)
+        //                Environment.Exit(0);
+        //            Display.DistrictsList(districts, drivers);
+        //            Display.DriversTitle();
+        //            foreach (var driver in drivers)
+        //            {
+        //                Console.WriteLine(Display.DriverInfo(driver));
+        //            }
+        //            Display.MainMenu();
+        //            usersNumber = int.Parse(Console.ReadLine());
+        //            isUsersNumberValid = usersNumber == 2;
+        //        }
+        //    }
 
-            if (usersNumber == 2)
-            {
-                Console.Clear();
-                usersNumber = Display.DistricrSelection();
-                isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
-                while (!isUsersNumberValid)
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("NIEPRAWIDŁOWY NUMER DZIELNICY");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    usersNumber = Display.DistricrSelection();
-                    isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
-                }
-            }
-
-
-            return districts[usersNumber - 1];
-        }
+        //    if (usersNumber == 2)
+        //    {
+        //        Console.Clear();
+        //        usersNumber = Display.DistricrSelection();
+        //        isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
+        //        while (!isUsersNumberValid)
+        //        {
+        //            Console.Clear();
+        //            Console.ForegroundColor = ConsoleColor.Red;
+        //            Console.WriteLine("NIEPRAWIDŁOWY NUMER DZIELNICY");
+        //            Console.ForegroundColor = ConsoleColor.White;
+        //            usersNumber = Display.DistricrSelection();
+        //            isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
+        //        }
+        //    }
 
 
-        public static District NextSelection(List<Driver> drivers, List<District> districts, District selectedDistrict,int orderedDriversIndex, bool firstOrder)
-        {
-            {
-                Console.Clear();
-                Display.OrderedDriversInfo(drivers[orderedDriversIndex], selectedDistrict);
-                Display.DistrictsList(districts, drivers);
-                Display.DriversTitle();
-                foreach (var driver in drivers)
-                {
-                    if (!firstOrder)
-                        Console.WriteLine($"{Display.DriverInfo(driver)} | ({driver.TimeToOrderedDistrict} min.)");
-                    else
-                        Console.WriteLine(Display.DriverInfo(driver));
-                }
-                int usersNumber = Display.DistricrSelection();
-                bool isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
-                while (!isUsersNumberValid)
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("NIEPRAWIDŁOWY NUMER DZIELNICY");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    usersNumber = Display.DistricrSelection();
-                    isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
-                }
+        //    return districts[usersNumber - 1];
+        //}
 
-                return districts[usersNumber - 1];
-            }
-        }
+
+        //public static District NextSelection(List<Driver> drivers, List<District> districts, District selectedDistrict,int orderedDriversIndex, bool firstOrder)
+        //{
+        //    {
+        //        Console.Clear();
+        //        Display.OrderedDriversInfo(drivers[orderedDriversIndex], selectedDistrict);
+        //        Display.DistrictsList(districts, drivers);
+        //        Display.DriversTitle();
+        //        foreach (var driver in drivers)
+        //        {
+        //            if (!firstOrder)
+        //                Console.WriteLine($"{Display.DriverInfo(driver)} | ({driver.TimeToOrderedDistrict} min.)");
+        //            else
+        //                Console.WriteLine(Display.DriverInfo(driver));
+        //        }
+        //        int usersNumber = Display.DistricrSelection();
+        //        bool isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
+        //        while (!isUsersNumberValid)
+        //        {
+        //            Console.Clear();
+        //            Console.ForegroundColor = ConsoleColor.Red;
+        //            Console.WriteLine("NIEPRAWIDŁOWY NUMER DZIELNICY");
+        //            Console.ForegroundColor = ConsoleColor.White;
+        //            usersNumber = Display.DistricrSelection();
+        //            isUsersNumberValid = usersNumber == 1 || usersNumber == 2 || usersNumber == 3 || usersNumber == 4 || usersNumber == 5;
+        //        }
+
+        //        return districts[usersNumber - 1];
+        //    }
+        //}
 
     }
 }

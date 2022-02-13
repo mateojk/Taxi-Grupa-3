@@ -9,9 +9,20 @@ namespace TaxiApp
         {
             TaxiService taxi = new TaxiService();
             bool firstOrder = true;
+            int usersNumber = 0;
 
-            Display.MainMenu();
-            District selectedDistrict = TaxiService.FirstOrderSelection(taxi.Drivers, taxi.Districts, int.Parse(Console.ReadLine()));
+
+
+
+            while (usersNumber == 0)
+            {
+                Console.Clear();
+                usersNumber = Display.MenuSelection();
+            }
+            // numer 1 lub 2 lub 3
+
+
+            District selectedDistrict = Display.FirstOrderSelection(taxi.Drivers, taxi.Districts, usersNumber);
             int orderedDriversIndex = TaxiService.SelectFastestDriversIndex(taxi.Drivers, selectedDistrict);
             taxi.Drivers[orderedDriversIndex].CurrentDistric = selectedDistrict;
             taxi.Drivers[orderedDriversIndex].StatusAvaible = false;
@@ -19,7 +30,7 @@ namespace TaxiApp
 
             while (true)
             {
-                selectedDistrict = TaxiService.NextSelection(taxi.Drivers, taxi.Districts, selectedDistrict, orderedDriversIndex, firstOrder);
+                selectedDistrict = Display.NextSelection(taxi.Drivers, taxi.Districts, selectedDistrict, orderedDriversIndex, firstOrder);
                 orderedDriversIndex = TaxiService.SelectFastestDriversIndex(taxi.Drivers, selectedDistrict);
                 taxi.Drivers[orderedDriversIndex].CurrentDistric = selectedDistrict;
                 taxi.Drivers[orderedDriversIndex].StatusAvaible = false;
