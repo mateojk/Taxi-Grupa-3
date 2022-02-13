@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Taxi
+namespace TaxiLogic
 {
     public class Driver
     {
@@ -26,6 +26,12 @@ namespace Taxi
             set { statusAvaible = value; }
         }
 
+        private int timeToOrderedDistrict;
+        public int TimeToOrderedDistrict
+        {
+            get { return timeToOrderedDistrict; }
+            set { timeToOrderedDistrict = value; }
+        }
 
     }
 }

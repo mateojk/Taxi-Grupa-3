@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxiLogic;
 
-namespace Taxi
+namespace TaxiApp
 {
     public class Display
     {
@@ -59,6 +60,14 @@ namespace Taxi
                 return int.Parse(usersSelection);
             else
                 return 0;
+        }
+
+        public static void OrderedDriversInfo(Driver driver, District district)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"ZLECENIE REALIZUJE: {driver.Car}");
+            Console.WriteLine($"CZAS DOJAZDU: {driver.TimeToOrderedDistrict} min.");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
     }
